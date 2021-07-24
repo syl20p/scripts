@@ -1,0 +1,23 @@
+#
+# Author : syl20p 
+#
+# Install docker on Ubuntu 20.04 LTS
+# notes : 
+#        You must have sudo privileges
+#        script don't reboot at the end of the script
+#        script boot docker at startup
+#
+
+echo "This script install Docker on Ubuntu 20.04"
+echo ""
+echo "1. Check your Ubuntu version... : release_lsb -a"
+echo "2. Check Ubuntu update / upgrade : sudo apt-get update -y && sudo apt-get upgrade -y && sudo reboot"
+echo "3. You must have sudo privileges to continue"
+read -n 1 -r -s -p $'Press <enter> to continue or ctrl^c to quit\n'
+    
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update -y
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo systemctl enable docker
