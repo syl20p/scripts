@@ -7,11 +7,11 @@
 #        script don't reboot at the end of the script
 #        script boot docker at startup
 #
-
+echo "=="
 echo "This script install Docker on Ubuntu 20.04"
-echo ""
-echo "1. Check your Ubuntu version... : release_lsb -a"
-echo "2. Check Ubuntu update / upgrade : sudo apt-get update -y && sudo apt-get upgrade -y && sudo reboot"
+echo "=="
+echo "1. Check your Ubuntu version -> release_lsb -a"
+echo "2. Check Ubuntu update / upgrade -> sudo apt-get update -y && sudo apt-get upgrade -y && sudo reboot"
 echo "3. You must have sudo privileges to continue"
 read -n 1 -r -s -p $'Press <enter> to continue or ctrl^c to quit\n'
     
