@@ -1,0 +1,26 @@
+#
+# Author : syl20p 
+#
+# Install Jenkins on Ubuntu 20.04 LTS
+# notes : 
+#        You must have sudo privileges
+#        script don't reboot at the end of the script
+#        script boot Jenkins at startup
+#
+
+echo "=="
+echo "This script install Jenkins on Ubuntu 20.04"
+echo "=="
+echo "Before install check : "
+echo "1. Check your Ubuntu version -> lsb_release -a "
+echo "2. Check Ubuntu update / upgrade -> sudo apt-get update -y && sudo apt-get upgrade -y && sudo reboot"
+echo "3. You must have sudo privileges to continue"
+read -n 1 -r -s -p $'Press <enter> to continue or ctrl^c to quit\n'
+    
+sudo apt install -y openjdk-11-jre-headless
+sudo apt install -y default-jdk
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt update
+sudo apt install -y jenkins
+sudo systemctl enable jenkins
