@@ -10,6 +10,7 @@
 echo "=="
 echo "This script install Docker on Ubuntu 20.04"
 echo "=="
+echo "Before install check : "
 echo "1. Check your Ubuntu version -> lsb_release -a "
 echo "2. Check Ubuntu update / upgrade -> sudo apt-get update -y && sudo apt-get upgrade -y && sudo reboot"
 echo "3. You must have sudo privileges to continue"
